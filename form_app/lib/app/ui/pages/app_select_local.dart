@@ -15,6 +15,9 @@ class _AppSelectPageState extends State<AppSelectPage> {
     return Container(
       child: Column(
         children: [
+          ElevatedButton(onPressed: (){Navigator.pushNamed(context,'Next'); }
+
+              , child: Text("Next")),
           ElevatedButton(onPressed: () async{
             await context.setLocale(Locale('ru'));
           }, child: Text("RU")),
@@ -24,7 +27,8 @@ class _AppSelectPageState extends State<AppSelectPage> {
           ElevatedButton(onPressed: () async{
             await context.setLocale(Locale('kk'));
           }, child: Text("KZ")),
-          Text(LocaleKeys.hello_text.tr())
+          Text(LocaleKeys.hello_text.tr()),
+
         ],
       ),
     );

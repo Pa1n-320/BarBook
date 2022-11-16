@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:form_app/app/ui/pages/app_select_local.dart';
+import 'package:form_app/auth/ui/pages/bottom_bar_page.dart';
+import 'package:form_app/auth/ui/pages/login_page.dart';
 import 'package:form_app/auth/ui/pages/register_form_page.dart';
 
 
@@ -33,6 +35,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: AppSelectPage(),
+      routes: { 'Next': (context) => RegisterFormPage(),
+                'Submit': (context) => LoginFormPage(),
+                'Enter': (context) => BottomBarPage()
+      },
+
     );
   }
 }

@@ -1,10 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_app/model/user.dart';
-
-
 
 class RegisterFormPage extends StatefulWidget {
   const RegisterFormPage({super.key});
@@ -70,7 +67,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Welcome'),
+        title: const Text('Create Account'),
         centerTitle: true,
       ),
       body: Form(
@@ -276,12 +273,12 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-              onPressed: _submitForm,
+              onPressed: (){Navigator.pushNamed(context,'Submit'); },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 textStyle: const TextStyle(color: Colors.white),
               ),
-              child: const Text('Submit Form'),
+              child: const Text('Submit'),
               //color: Colors.green,
             ),
           ],
@@ -293,7 +290,6 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      _showDialog(name: _nameController.text);
       log('Name: ${_nameController.text}');
       log('Phone: ${_phoneController.text}');
       log('Email: ${_emailController.text}');
@@ -374,50 +370,5 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     //     ),
     //   ),
     // );
-  }
-
-  void _showDialog({required String name}) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text(
-            'Registration successful',
-            style: TextStyle(
-              color: Colors.green,
-            ),
-          ),
-          content: Text(
-            '$name is now a verified register form',
-            style: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 18.0,
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-                /*Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UserInfoPage(
-                      userInfo: newUser,
-                    ),
-                  ),
-                );*/
-              },
-              child: const Text(
-                'Verified',
-                style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 18.0,
-                ),
-              ),
-            ),
-          ],
-        );
-      },
-    );
   }
 }
