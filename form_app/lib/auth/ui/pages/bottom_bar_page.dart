@@ -3,6 +3,8 @@ import 'package:form_app/auth/ui/pages/mainpage.dart';
 import 'package:form_app/auth/ui/pages/fourthpage.dart';
 import 'package:form_app/auth/ui/pages/secondpage.dart';
 import 'package:form_app/auth/ui/pages/thirdpage.dart';
+import 'package:form_app/auth/ui/pages/user_info.dart';
+
 
 class BottomBarPage extends StatefulWidget {
   const BottomBarPage({super.key});
@@ -17,7 +19,7 @@ class _BottomBarPageState extends State<BottomBarPage> {
     const MainPage(),
     const SecondPage(),
     const ThirdPage(),
-    const FourthPage(),
+    const ProfileInfoPage(),
   ];
 
   @override
@@ -26,7 +28,7 @@ class _BottomBarPageState extends State<BottomBarPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "BottomExample",
+          "AlmatyTime",
           style: TextStyle(
             color: Theme.of(context).primaryColor,
             fontSize: 25,
@@ -45,7 +47,7 @@ class _BottomBarPageState extends State<BottomBarPage> {
     return Container(
       height: 60,
       decoration: const BoxDecoration(
-        color: Colors.amberAccent,
+        color: Colors.cyan,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),

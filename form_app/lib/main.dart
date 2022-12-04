@@ -4,17 +4,21 @@ import 'package:form_app/app/ui/pages/app_select_local.dart';
 import 'package:form_app/auth/ui/pages/bottom_bar_page.dart';
 import 'package:form_app/auth/ui/pages/login_page.dart';
 import 'package:form_app/auth/ui/pages/register_form_page.dart';
+import 'package:form_app/generated/codegen_loader.g.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
+
   runApp(
     EasyLocalization(
+
         supportedLocales: [Locale('kk'), Locale('ru'), Locale('en')],
         path: 'assets/translations', // <-- change the path of the translation files
-        fallbackLocale: Locale('kk'),
+        fallbackLocale: Locale('en'),
+        assetLoader: CodegenLoader(),
         child: MyApp()
     ),
   );

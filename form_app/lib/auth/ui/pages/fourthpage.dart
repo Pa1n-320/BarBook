@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-
-class FourthPage extends StatefulWidget {
-  const FourthPage({super.key});
+class ProfileInfoPage extends StatefulWidget {
+  const ProfileInfoPage({super.key});
 
   @override
-  State<FourthPage> createState() => _FourthPageState();
+  State<ProfileInfoPage> createState() => _ProfileInfoPageState();
 }
 
-class _FourthPageState extends State<FourthPage> {
+class _ProfileInfoPageState extends State<ProfileInfoPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Center(
-        child: Text(
-          "Page Number 4",
-          style: TextStyle(
-            color: Colors.green[900],
-            fontSize: 45,
-            fontWeight: FontWeight.w500,
-          ),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("ProfilePage",
+            textAlign: TextAlign.center),
+        ),
+        body: Container(
+          margin: EdgeInsets.all(30),
+          child: Text("Logged"),
         ),
       ),
     );

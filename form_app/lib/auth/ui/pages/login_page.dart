@@ -2,7 +2,18 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_app/model/user.dart';
+import 'dart:developer';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:form_app/auth/ui/pages/user_info.dart';
+import 'package:form_app/model/user.dart';
+import 'package:http/http.dart'as http;
+import 'dart:convert';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:form_app/translations/locale_keys.g.dart';
 
+import 'package:form_app/translations/locale_keys.g.dart';
 class LoginFormPage extends StatefulWidget {
   const LoginFormPage({super.key});
 
@@ -56,7 +67,7 @@ class _LoginFormPage extends State<LoginFormPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Welcome'),
+        title: Text(LocaleKeys.authorization.tr()),
         centerTitle: true,
       ),
       body: Form(
@@ -67,9 +78,9 @@ class _LoginFormPage extends State<LoginFormPage> {
             const SizedBox(height: 10),
             TextFormField(
               controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email Address',
-                hintText: 'Enter a email address',
+              decoration: InputDecoration(
+                labelText: LocaleKeys.email_address.tr(),
+                hintText: LocaleKeys.enter_email.tr(),
                 icon: Icon(Icons.mail),
               ),
               keyboardType: TextInputType.emailAddress,
@@ -83,8 +94,8 @@ class _LoginFormPage extends State<LoginFormPage> {
               obscureText: _hidePass,
               maxLength: 8,
               decoration: InputDecoration(
-                labelText: 'Password *',
-                hintText: 'Enter the password',
+                labelText: LocaleKeys.password.tr(),
+                hintText: LocaleKeys.enter_password.tr(),
                 suffixIcon: IconButton(
                   icon:
                   Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
@@ -104,7 +115,7 @@ class _LoginFormPage extends State<LoginFormPage> {
                 backgroundColor: Colors.green,
                 textStyle: const TextStyle(color: Colors.white),
               ),
-              child: const Text('Enter'),
+              child: Text(LocaleKeys.enter.tr()),
               //color: Colors.green,
             ),
           ],
@@ -118,7 +129,7 @@ class _LoginFormPage extends State<LoginFormPage> {
       _formKey.currentState!.save();
       log('Email: ${_emailController.text}');
     } else {
-      _showMessage(message: 'Form is not valid! Please review and correct');
+      _showMessage(message: LocaleKeys.form_is_not_valid.tr());
     }
   }
 
@@ -130,9 +141,9 @@ class _LoginFormPage extends State<LoginFormPage> {
 
   String? validateEmail(String? value) {
     if (value == null) {
-      return 'Email cannot be empty';
+      return LocaleKeys.email_empty.tr();
     } else if (!_emailController.text.contains('@')) {
-      return 'Invalid email address';
+      return LocaleKeys.invalid_email.tr();
     } else {
       return null;
     }

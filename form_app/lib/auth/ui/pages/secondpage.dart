@@ -26,7 +26,11 @@ class _SecondPageState extends State<SecondPage> {
     }
   }
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+    title: Text ("QR code scan")
+    ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -47,6 +51,7 @@ class _SecondPageState extends State<SecondPage> {
           )
         ],
       ),
+    )
     );
   }
   void _onQRViewCreated(QRViewController controller) {

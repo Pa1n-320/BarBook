@@ -42,6 +42,12 @@ dependencies:
   like_button: ^2.0.5
   qr_code_scanner: ^1.0.1
   google_maps_flutter: ^2.2.1
+  lottie: ^2.0.0
+  http: ^0.13.5
+  firebase_messaging: ^14.0.4
+  flutter_local_notifications: ^12.0.3
+  firebase_analytics: ^10.0.5
+
 
 
 dev_dependencies:
@@ -70,6 +76,10 @@ flutter:
   assets:
     - assets/images/
     - assets/translations/
+    - assets/animations/127164-404-error.json
+    - assets/images/image1.jpg
+    - assets/images/image2.jpg
+    - assets/images/image3.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

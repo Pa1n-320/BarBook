@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -9,30 +10,57 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xffC4DFCB),
-      child: Center(
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              title: const Text('Map'),
-              leading: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  minWidth: 44,
-                  minHeight: 44,
-                  maxWidth: 64,
-                  maxHeight: 64,
+    return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text("News"),
+          ),
+    body: Container(
+        color: Colors.white70,
+        child: SingleChildScrollView(
+            child:Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 35, right: 35),
+                  child:
+                  Image.asset('assets/images/image1.jpg'),
+
                 ),
-                child: LikeButton(
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+
+                  margin: EdgeInsets.only( right: 200),
+                  child:
+                  Text.rich(
+                    TextSpan(
+                      text: 'friend220 ',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'My new art!!',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                ),
+                LikeButton(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  padding: EdgeInsets.only(top:10 ,left: 20),
                   size: 20,
                   circleColor: const CircleColor(
-                      start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                      start: Colors.cyanAccent, end: Colors.cyan),
                   bubblesColor: const BubblesColor(
-                    dotPrimaryColor: Color(0xff33b5e5),
-                    dotSecondaryColor: Color(0xff0099cc),
-                  ),
+                      dotPrimaryColor: Colors.cyanAccent,
+                      dotSecondaryColor: Colors.tealAccent),
                   likeBuilder: (bool isLiked) {
                     return Icon(
                       Icons.favorite,
@@ -42,25 +70,49 @@ class _MainPageState extends State<MainPage> {
                   },
                   likeCount: 0,
                 ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Home'),
-              leading: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  minWidth: 44,
-                  minHeight: 44,
-                  maxWidth: 64,
-                  maxHeight: 64,
+                SizedBox(
+                  height: 20,
                 ),
-                child: LikeButton(
+                Container(
+                  margin: EdgeInsets.only(left: 35, right: 35),
+                  child:
+                  Image.network('https://bizmedia.kz/wp-content/uploads/2022/09/dekabr-bizmedia.kz_-1024x724.jpg'),
+
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+
+                  margin: EdgeInsets.only( right: 200),
+                  child:
+                  Text.rich(
+                    TextSpan(
+                      text: 'carlosFn ',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Perfect.',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                ),
+                LikeButton(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  padding: EdgeInsets.only(top:20 ,left: 20),
                   size: 20,
                   circleColor: const CircleColor(
-                      start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                      start: Colors.cyanAccent, end: Colors.cyan),
                   bubblesColor: const BubblesColor(
-                    dotPrimaryColor: Color(0xff33b5e5),
-                    dotSecondaryColor: Color(0xff0099cc),
-                  ),
+                      dotPrimaryColor: Colors.cyanAccent,
+                      dotSecondaryColor: Colors.tealAccent),
                   likeBuilder: (bool isLiked) {
                     return Icon(
                       Icons.favorite,
@@ -70,25 +122,49 @@ class _MainPageState extends State<MainPage> {
                   },
                   likeCount: 0,
                 ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Phone'),
-              leading: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  minWidth: 44,
-                  minHeight: 44,
-                  maxWidth: 64,
-                  maxHeight: 64,
+                SizedBox(
+                  height: 20,
                 ),
-                child: LikeButton(
+                Container(
+                  margin: EdgeInsets.only(left: 35, right: 35),
+                  child:
+                  Image.network('assets/images/image2.jpg'),
+
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+
+                  margin: EdgeInsets.only( right: 200),
+                  child:
+                  Text.rich(
+                    TextSpan(
+                      text: 'user152654 ',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'My first work',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                ),
+                LikeButton(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  padding: EdgeInsets.only(top:20 ,left: 20),
                   size: 20,
                   circleColor: const CircleColor(
-                      start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                      start: Colors.cyanAccent, end: Colors.cyan),
                   bubblesColor: const BubblesColor(
-                    dotPrimaryColor: Color(0xff33b5e5),
-                    dotSecondaryColor: Color(0xff0099cc),
-                  ),
+                      dotPrimaryColor: Colors.cyanAccent,
+                      dotSecondaryColor: Colors.tealAccent),
                   likeBuilder: (bool isLiked) {
                     return Icon(
                       Icons.favorite,
@@ -98,39 +174,16 @@ class _MainPageState extends State<MainPage> {
                   },
                   likeCount: 0,
                 ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Image'),
-              leading: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  minWidth: 44,
-                  minHeight: 44,
-                  maxWidth: 64,
-                  maxHeight: 64,
+                SizedBox(
+                  height: 20,
                 ),
-                child: LikeButton(
-                  size: 20,
-                  circleColor: const CircleColor(
-                      start: Color(0xff00ddff), end: Color(0xff0099cc)),
-                  bubblesColor: const BubblesColor(
-                    dotPrimaryColor: Color(0xff33b5e5),
-                    dotSecondaryColor: Color(0xff0099cc),
-                  ),
-                  likeBuilder: (bool isLiked) {
-                    return Icon(
-                      Icons.favorite,
-                      color: isLiked ? Colors.red : Colors.grey,
-                      size: 20,
-                    );
-                  },
-                  likeCount: 0,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+              ],
+            )
+        )
+
+
+    ),
+    ),
     );
   }
 }

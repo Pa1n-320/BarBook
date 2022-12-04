@@ -1,7 +1,15 @@
 import 'dart:developer';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_app/auth/ui/pages/user_info.dart';
 import 'package:form_app/model/user.dart';
+import 'package:http/http.dart'as http;
+import 'dart:convert';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:form_app/translations/locale_keys.g.dart';
+
+
 
 class RegisterFormPage extends StatefulWidget {
   const RegisterFormPage({super.key});
@@ -25,10 +33,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
   final _idController = TextEditingController();
   final _genderController = TextEditingController();
 
-  final List<String> _countries = ['Russia', 'Ukraine', 'Germany', 'France', 'Kazakhstan'];
-  String _selectedCountry = 'Kazakhstan';
-  final List<String> _genders = ['Male','Female'];
-  String _selectedGender = 'Male';
+  final List<String> _countries = [LocaleKeys.russia.tr(), LocaleKeys.ukraine.tr(), LocaleKeys.germany.tr(), LocaleKeys.france.tr(), LocaleKeys.kazakhstan.tr()];
+  String _selectedCountry = LocaleKeys.russia.tr();
+  final List<String> _genders = [LocaleKeys.male.tr(),LocaleKeys.female.tr()];
+  String _selectedGender = LocaleKeys.male.tr();
 
   final _nameFocus = FocusNode();
   final _phoneFocus = FocusNode();
@@ -67,7 +75,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Create Account'),
+        title: Text(LocaleKeys.registration.tr()),
         centerTitle: true,
       ),
       body: Form(
@@ -83,7 +91,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               },
               controller: _nameController,
               decoration: InputDecoration(
-                hintText: 'Username/Email',
+                hintText: LocaleKeys.name.tr(),
                 prefixIcon: const Icon(Icons.messenger),
                 suffixIcon: GestureDetector(
                   onTap: () {
@@ -94,7 +102,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                     color: Colors.red,
                   ),
                 ),
-                  enabledBorder: const OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   borderSide: BorderSide(color: Colors.black, width: 2.0),
                 ),
@@ -114,9 +122,9 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               },
               controller: _phoneController,
               decoration: InputDecoration(
-                labelText: 'Phone Number *',
+                labelText: LocaleKeys.phone_number.tr(),
                 hintText: 'Where can we reach you?',
-                helperText: 'Phone format: (XXX)XXX-XXXX',
+                helperText: LocaleKeys.phone_format.tr(),
                 prefixIcon: const Icon(Icons.call),
                 suffixIcon: GestureDetector(
                   onLongPress: () {
@@ -144,15 +152,16 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               ],
               validator: (value) => validatePhoneNumber(value!)
                   ? null
-                  : 'Phone number must be entered as (###)###-####',
+                  : LocaleKeys.phone_format.tr(),
+
               onSaved: (value) => newUser.phone = value!,
             ),
             const SizedBox(height: 10),
             TextFormField(
               controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email Address',
-                hintText: 'Enter a email address',
+              decoration: InputDecoration(
+                labelText: LocaleKeys.email_address.tr(),
+                hintText: LocaleKeys.enter_email.tr(),
                 icon: Icon(Icons.mail),
               ),
               keyboardType: TextInputType.emailAddress,
@@ -161,10 +170,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
             ),
             const SizedBox(height: 10),
             DropdownButtonFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   icon: Icon(Icons.map),
-                  labelText: 'Country?'),
+                  labelText: LocaleKeys.country.tr()),
               items: _countries.map((country) {
                 return DropdownMenuItem(
                   value: country,
@@ -185,10 +194,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
             const SizedBox(height: 20),
             TextFormField(
               controller: _storyController,
-              decoration: const InputDecoration(
-                labelText: 'Life Story',
-                hintText: 'Tell us about your self',
-                helperText: 'Keep it short, this is just a demo',
+              decoration: InputDecoration(
+                labelText: LocaleKeys.life_story.tr(),
+                hintText: LocaleKeys.tell_about.tr(),
+                helperText: LocaleKeys.keep_it_short.tr(),
                 border: OutlineInputBorder(),
               ),
               maxLines: 3,
@@ -204,11 +213,11 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               obscureText: _hidePass,
               maxLength: 8,
               decoration: InputDecoration(
-                labelText: 'Password *',
-                hintText: 'Enter the password',
+                labelText: LocaleKeys.password.tr(),
+                hintText: LocaleKeys.enter_password.tr(),
                 suffixIcon: IconButton(
                   icon:
-                      Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
+                  Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
                   onPressed: () {
                     setState(() {
                       _hidePass = !_hidePass;
@@ -224,9 +233,9 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               controller: _confirmPassController,
               obscureText: _hidePass,
               maxLength: 8,
-              decoration: const InputDecoration(
-                labelText: 'Confirm Password *',
-                hintText: 'Confirm the password',
+              decoration: InputDecoration(
+                labelText: LocaleKeys.confirm.tr(),
+                hintText: LocaleKeys.confirm_password.tr(),
                 icon: Icon(Icons.border_color),
               ),
               validator: _validatePassword,
@@ -234,12 +243,12 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
             const SizedBox(height: 20),
             TextFormField(
               controller: _idController,
-              decoration: const InputDecoration(
-                labelText: 'Barcode',
-                hintText: 'Your barcode',
+              decoration: InputDecoration(
+                labelText: LocaleKeys.barcode.tr(),
+                hintText: LocaleKeys.your_barcode.tr(),
                 border: OutlineInputBorder(),
               ),
-              maxLength: 8,
+              maxLength: 7,
               keyboardType: TextInputType.phone,
               inputFormatters: [
                 // FilteringTextInputFormatter.digitsOnly,
@@ -250,13 +259,13 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
             ),
             const SizedBox(height: 10),
             DropdownButtonFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   icon: Icon(Icons.map),
-                  labelText: 'Gender?'),
+                  labelText: LocaleKeys.gender.tr()),
               items: _genders.map((gender) {
                 return DropdownMenuItem(
-                    value: gender,
+                  value: gender,
                   child: Text(gender),
                 );
               }).toList(),
@@ -273,12 +282,12 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-              onPressed: (){Navigator.pushNamed(context,'Submit'); },
+              onPressed: _submitForm,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 textStyle: const TextStyle(color: Colors.white),
               ),
-              child: const Text('Submit'),
+              child: Text(LocaleKeys.submit.tr()),
               //color: Colors.green,
             ),
           ],
@@ -286,33 +295,44 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
       ),
     );
   }
-
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+      const url = 'https://flutterprojectsergei-default-rtdb.firebaseio.com/user.json';
+      http.post(Uri.parse(url), body: jsonEncode({
+        'Name': _nameController.text,
+        'Phone': _phoneController.text,
+        'Email': _emailController.text,
+        'Story': _storyController.text,
+      }
+      ),
+      ).then((response){
+        print(json.decode(response.body));
+        String userName = json.decode(response.body)['name'];
+        _showDialog(name: '$userName');
+      });
+      _showDialog(name: _nameController.text);
       log('Name: ${_nameController.text}');
       log('Phone: ${_phoneController.text}');
       log('Email: ${_emailController.text}');
-      log('Country: $_selectedCountry');
-      log('Story: ${_storyController.text}');
-      log('Gender: ${_genderController.text}');
+      Navigator.pushNamed(context, 'Submit');
     } else {
-      _showMessage(message: 'Form is not valid! Please review and correct');
+      _showMessage(message: LocaleKeys.form_is_not_valid.tr());
     }
   }
 
   String? validateName(String? value) {
     final nameExp = RegExp(r'^[A-Za-z ]+$');
     if (value == null) {
-      return 'Name is reqired.';
+      return LocaleKeys.name_is_required.tr();
     } else if (!nameExp.hasMatch(value)) {
-      return 'Please enter alphabetical characters.';
+      return LocaleKeys.please_enter.tr();
     } else {
       return null;
     }
   }
   bool validatePhoneNumber(String input) {
-    final phoneExp = RegExp(r'^\(\d\d\d\)\d\d\d\-\d\d\d\d$');
+    final phoneExp = RegExp(r'^\d\d\d\-\d\d\d\-\d\d\d\d$');
     return phoneExp.hasMatch(input);
   }
   bool validateID(String input) {
@@ -322,9 +342,9 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
 
   String? validateEmail(String? value) {
     if (value == null) {
-      return 'Email cannot be empty';
+      return LocaleKeys.email_empty.tr();
     } else if (!_emailController.text.contains('@')) {
-      return 'Invalid email address';
+      return LocaleKeys.invalid_email.tr();
     } else {
       return null;
     }
@@ -332,15 +352,15 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
 
   String? _validatePassword(String? value) {
     if (_passController.text.length != 8) {
-      return '8 character required for password';
+      return LocaleKeys.password_required.tr();
     } else if (_confirmPassController.text != _passController.text) {
-      return 'Password does not match';
+      return LocaleKeys.password_doesnt.tr();
     } else {
       return null;
     }
   }
 
-  void _showMessage({required String message}) {
+    void _showMessage({required String message}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 1),
@@ -371,4 +391,51 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     //   ),
     // );
   }
+
+  void _showDialog({required String name}) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            LocaleKeys.registration_is_successful.tr(),
+            style: TextStyle(
+              color: Colors.green,
+            ),
+          ),
+          content: Text(
+            '$name is now a verified register form',
+              style: const TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 18.0,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UserInfoPage(
+                      userInfo: newUser,
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                LocaleKeys.submit.tr(),
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 18.0,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
+
+
