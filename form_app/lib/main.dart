@@ -9,6 +9,7 @@ import 'package:form_app/generated/codegen_loader.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await EasyLocalization.ensureInitialized();
 
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      title: 'Flutter Demo',
+      title: 'Sergei ',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

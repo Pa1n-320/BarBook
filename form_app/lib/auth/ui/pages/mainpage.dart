@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/services.dart';
+import 'package:form_app/translations/locale_keys.g.dart';
+
 
 
 class MainPage extends StatefulWidget {
@@ -14,7 +18,9 @@ class _MainPageState extends State<MainPage> {
     return MaterialApp(
         home: Scaffold(
           appBar: AppBar(
-            title: Text("News"),
+            title: Text(LocaleKeys.news.tr(),
+              textAlign: TextAlign.center),
+
           ),
     body: Container(
         color: Colors.white70,
@@ -32,18 +38,20 @@ class _MainPageState extends State<MainPage> {
                 ),
                 Container(
 
-                  margin: EdgeInsets.only( right: 200),
+                  margin: EdgeInsets.only( right: 50),
                   child:
                   Text.rich(
                     TextSpan(
-                      text: 'friend220 ',
+                      text: LocaleKeys.Text1Bolt.tr(),
                       style: TextStyle(
+                          fontSize: 25.0,
                           fontWeight: FontWeight.w700
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'My new art!!',
+                          text: LocaleKeys.Text1.tr(),
                           style: TextStyle(
+                              fontSize: 14.0,
                               fontWeight: FontWeight.w400
                           ),
                         ),
@@ -68,7 +76,7 @@ class _MainPageState extends State<MainPage> {
                       size: 20,
                     );
                   },
-                  likeCount: 0,
+                  likeCount: 93,
                 ),
                 SizedBox(
                   height: 20,
@@ -76,7 +84,7 @@ class _MainPageState extends State<MainPage> {
                 Container(
                   margin: EdgeInsets.only(left: 35, right: 35),
                   child:
-                  Image.network('https://bizmedia.kz/wp-content/uploads/2022/09/dekabr-bizmedia.kz_-1024x724.jpg'),
+                  Image.network('assets/images/imagetrailer.jpg'),
 
                 ),
                 SizedBox(
@@ -84,18 +92,20 @@ class _MainPageState extends State<MainPage> {
                 ),
                 Container(
 
-                  margin: EdgeInsets.only( right: 200),
+                  margin: EdgeInsets.only( right: 50),
                   child:
                   Text.rich(
                     TextSpan(
-                      text: 'carlosFn ',
+                      text: LocaleKeys.Text2Bolt.tr(),
                       style: TextStyle(
+                          fontSize: 25.0,
                           fontWeight: FontWeight.w700
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'Perfect.',
+                          text: LocaleKeys.Text2.tr(),
                           style: TextStyle(
+                              fontSize: 14.0,
                               fontWeight: FontWeight.w400
                           ),
                         ),
@@ -120,7 +130,7 @@ class _MainPageState extends State<MainPage> {
                       size: 20,
                     );
                   },
-                  likeCount: 0,
+                  likeCount: 20,
                 ),
                 SizedBox(
                   height: 20,
@@ -128,7 +138,7 @@ class _MainPageState extends State<MainPage> {
                 Container(
                   margin: EdgeInsets.only(left: 35, right: 35),
                   child:
-                  Image.network('assets/images/image2.jpg'),
+                  Image.network('assets/images/imageinternational.jpg'),
 
                 ),
                 SizedBox(
@@ -136,18 +146,20 @@ class _MainPageState extends State<MainPage> {
                 ),
                 Container(
 
-                  margin: EdgeInsets.only( right: 200),
+                  margin: EdgeInsets.only( right: 50),
                   child:
                   Text.rich(
                     TextSpan(
-                      text: 'user152654 ',
+                      text: LocaleKeys.Text3Bolt.tr(),
                       style: TextStyle(
+                          fontSize: 25.0,
                           fontWeight: FontWeight.w700
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'My first work',
+                          text: LocaleKeys.Text3.tr(),
                           style: TextStyle(
+                              fontSize: 14.0,
                               fontWeight: FontWeight.w400
                           ),
                         ),
@@ -172,7 +184,7 @@ class _MainPageState extends State<MainPage> {
                       size: 20,
                     );
                   },
-                  likeCount: 0,
+                  likeCount: 170,
                 ),
                 SizedBox(
                   height: 20,

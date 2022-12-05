@@ -41,4 +41,11 @@ abstract class  LocaleKeys {
   static const ukraine = "ukraine";
   static const germany = "germany";
   static const france = "france";
+  static const Text1Bolt = "Text1Bolt";
+  static const Text1 = "Text1";
+  static const Text2Bolt = "Text2Bolt";
+  static const Text2 = "Text2";
+  static const Text3Bolt = "Text3Bolt";
+  static const Text3 = "Text3";
+  static const news = "news";
 }

@@ -7,9 +7,8 @@ import '../model/user.dart';
 
 class UserInfoPage extends StatelessWidget {
 
-  final User userInfo;
   const UserInfoPage({Key? key, required this.userInfo}) : super(key: key);
-
+  final User userInfo;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

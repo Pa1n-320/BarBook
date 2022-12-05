@@ -54,7 +54,14 @@ class CodegenLoader extends AssetLoader{
   "russia": "Russia",
   "ukraine": "Ukraine",
   "germany": "Germany",
-  "france": "France"
+  "france": "France",
+  "Text1Bolt": "Cyberpunk 2077 will receive the \"Game of the Year\" edition",
+  "Text1": "\n\nCD Projekt RED studio plans to release a new edition of Cyberpunk 2077. This was told by the head of the company Adam Kichinsky in a comment for the Stockwatch portal.A new edition called \"Game of the Year\" will be released in 2023. First, the developers plan to release additional patches, as well as the Phantom Liberty story supplement, announced in September 2022. At the same time, it is still unknown when the DLC will be released.Cyberpunk 2077 was released in 2020. Earlier, the game developers said that the only story addition Phantom Liberty will be paid. The DLC action in the spirit of a spy thriller will develop simultaneously with the main story.",
+  "Text2Bolt": "Riot Games showed the Arcane story video",
+  "Text2": "\n\nRiot Games has published an excerpt from the Arcane animated series based on the League of Legends universe. The new footage was presented during Netflix's Geeked Week online festival.The Arcane plot will develop around two champions of League of Legends — sisters Vi and Jinx, and the action will take place in a technological Pilot and steampunk slums of Zauna. In a short story clip, the developers showed Jinx, who recalls moments of a quarrel with her sister.Earlier, Riot Games released a teaser of the series on the LoL universe and showed several characters who will appear in the picture. There was an unknown hero among them, and fans assumed that on the day of the premiere Riot would add a new champion to LoL. The release of the series on the streaming platform Netflix",
+  "Text3Bolt": "Tundra Esports became the champion of The International 2022",
+  "Text3": "\n\nTundra Esports beat Team Secret in the grand final of The International 2022 Dota 2. The match ended with a score of 3:0. Neta 33 Shapira's team became the champion of the tournament and earned more than 8.4 million. Her opponent received more than 2.4 million. Earlier, the teams met in the final of the upper grid, where Tundra also turned out to be stronger, the result of the confrontation was 2:1.TI11 was held from October 15 to October 30 in Singapore. The prize fund of the championship amounted to more than  18.8 million — it continues to increase due to sales of the Battle Pass and its levels. You can get acquainted with the composition of the participants in the report.",
+  "news": "News"
 
 };
 static const Map<String,dynamic> kk = {
@@ -90,14 +97,21 @@ static const Map<String,dynamic> kk = {
   "password_required": "Құпия сөз үшін 8 таңба қажет",
   "password_doesnt": "Құпия сөз сәйкес келмейді",
   "registration_is_successful": "Тіркеу сәтті өтті",
-   "enter_email": "Email мекенжайын енгізіңіз",
+  "enter_email": "Email мекенжайын енгізіңіз",
   "log_in": "Кіру",
   "authorization": "Авторизация",
   "kazakhstan": "Қазақстан",
   "russia": "Ресей",
   "ukraine": "Украина",
   "germany": "Германия",
-  "france": "Франция"
+  "france": "Франция",
+  "Text1Bolt": "Cyberpunk 2077 \"жыл ойыны\" басылымын алады",
+  "Text1": "\n\nCD Projekt Red студиясы cyberpunk 2077 жаңа шығарылымын шығаруды жоспарлап отыр. Бұл туралы компания басшысы Адам Кичинский stockwatch порталына берген түсініктемесінде айтты.\"Жыл ойыны\" деп аталатын жаңа басылым 2023 жылы шығады. Алдымен әзірлеушілер қосымша патчтарды, сондай-ақ 2022 жылдың қыркүйегінде жарияланған Phantom Liberty сюжеттік қосымшасын шығаруды жоспарлап отыр. Сонымен қатар, DLC қашан шығарылатыны әлі белгісіз.Cyberpunk 2077 2020 жылы шықты. Ойын әзірлеушілері бұған дейін Phantom Liberty-дің жалғыз сюжеттік қосымшасы ақылы болатынын айтқан болатын. Тыңшылық триллер рухындағы DLC әрекеті негізгі оқиғамен бір уақытта дамиды.",
+  "Text2Bolt": "Riot Games Arcane сюжеттік бейнесін көрсетті",
+  "Text2": "\n\nRiot Games Аңыздар лигасы әлеміндегі arcane анимациялық сериясынан үзінді жариялады. Жаңа кадрлар Netflix-тің geeked Week онлайн фестивалі кезінде ұсынылды.Arcane сюжеті League of Legends — тің екі чемпионы-Vi және Jinx апалы-сіңлілері төңірегінде өрбиді және Саунның технологиялық Пилтовері мен стэмпанк лашықтарында өтеді. Қысқа сюжеттік бейнеде әзірлеушілер әпкесімен болған жанжал сәттерін еске түсіретін Jinx-ті көрсетті.Riot Games бұған дейін LoL әлемінде сериалдың тизерін шығарды және картинада пайда болатын бірнеше кейіпкерлерді көрсетті. Олардың арасында белгісіз кейіпкер болды және жанкүйерлер Премьера күні Riot LoL-ға жаңа чемпион қосады деп болжады. Сериалдың Netflix ағындық платформасында шығуы",
+  "Text3Bolt": "Tundra Esports The International 2022 чемпионы атанды",
+  "Text3": "\n\nTundra Esports the international 2022 үлкен финалында Team Secret-ті Dota 2-де жеңді. Кездесу 3:0 есебімен аяқталды.Команда жоқ 33 шапиралар турнир чемпионы атанды және 8,4 миллионнан астам табыс тапты. оның қарсыласы 2,4 миллионнан астам доллар алды. бұрын командалар жоғарғы тордың финалында кездесті, онда тундра да күшті болды, қарсыласу нәтижесі 2:1 болды.TI11 15-30 қазан аралығында Сингапурда өтті. Чемпионаттың жүлде қоры 18,8 миллион доллардан асты-ол Battle Pass сатылымы мен оның деңгейлері арқылы өсуді жалғастыруда. Қатысушылардың құрамымен репортажда танысуға болады.",
+  "news": "Жаңалықтар"
 
 };
 static const Map<String,dynamic> ru = {
@@ -140,7 +154,14 @@ static const Map<String,dynamic> ru = {
   "russia": "Россия",
   "ukraine": "Украина",
   "germany": "Германия",
-  "france": "Франция"
+  "france": "Франция",
+  "Text1Bolt": "Cyberpunk 2077 получит издание «Игра года»",
+  "Text1": "\n\nСтудия CD Projekt RED планирует выпустить новое издание Cyberpunk 2077. Об этом рассказал глава компании Адам Кичиньский в комментарии для портала Stockwatch. Новое издание под названием «Игра года» выйдет в 2023 году. Сначала разработчики планируют выпустить дополнительные патчи, а также сюжетное дополнение Phantom Liberty, анонсированное в сентябре 2022-го. При этом когда состоится релиз DLC, до сих пор неизвестно.Cyberpunk 2077 вышла в 2020 году. Ранее разработчики игры рассказали, что единственное сюжетное дополнение Phantom Liberty станет платным. Действие DLC в духе шпионского триллера будет развиваться одновременно с основной историей.",
+  "Text2Bolt": "Riot Games показала сюжетный ролик Arcane",
+  "Text2": "\n\nRiot Games опубликовала отрывок из анимационного сериала Arcane по вселенной League of Legends. Новые кадры были представлены во время онлайн-фестиваля Geeked Week от Netflix. Сюжет Arcane будет развиваться вокруг двух чемпионов League of Legends — сестер Vi и Jinx, а действие будет происходить в технологическом Пилтовере и стимпанковских трущобах Зауна. В коротком сюжетном ролике разработчики показали Jinx, которая вспоминает моменты ссоры с сестрой. Ранее Riot Games выпустила тизер сериала по вселенной LoL и показала несколько персонажей, которые появятся в картине. Среди них был неизвестный герой, и фанаты предположили, что в день премьеры Riot добавит нового чемпиона в LoL. Выход сериала на стриминговой платформе Netflix",
+  "Text3Bolt": "Tundra Esports стала чемпионом The International 2022",
+  "Text3": "\n\nTundra Esports обыграла Team Secret в гранд-финале The International 2022 по Dota 2. Встреча завершилась со счетом 3:0.Команда Неты 33 Шапиры стала чемпионом турнира и заработала более 8,4 млн. Ее оппонент получил более 2,4 млн. Ранее коллективы встречались в финале верхней сетки, где Tundra также оказалась сильнее, результат противостояния — 2:1.TI11 прошел с 15 по 30 октября в Сингапуре. Призовой фонд чемпионата составил более 18,8 млн — он продолжает увеличиваться за счет продаж Battle Pass и уровней к нему. Ознакомиться с составами участников можно в репортаже.",
+  "news": "Новости"
 
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "kk": kk, "ru": ru};
